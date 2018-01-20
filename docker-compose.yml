@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+
+  prison-transport:
+    build: .
+    ports:
+      - 5005:5005
+    volumes:
+      - "~/.sbt:/root/.sbt"
+      - "~/.ivy2:/root/.ivy2"
+      - ".:/opt/prison-transport"
+      - "/opt/prison-transport/target"
+      - "/opt/prison-transport/project/target"
