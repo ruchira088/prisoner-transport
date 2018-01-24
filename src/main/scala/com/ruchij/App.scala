@@ -2,7 +2,7 @@ package com.ruchij
 
 import java.nio.file.{Path, Paths}
 
-import com.ruchij.utils.IOUtils
+import com.ruchij.utils.{IOUtils, ScalaUtils}
 
 import scala.concurrent.{Await, Future}
 import scala.concurrent.duration._

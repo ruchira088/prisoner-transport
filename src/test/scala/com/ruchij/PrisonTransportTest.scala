@@ -9,9 +9,9 @@ class PrisonTransportTest extends FlatSpec with Matchers
 
   "PrisonTransport.calculateCost(Int, List[(Int, Int)])" should "return correct cost" in {
 
-    val PrisonTransport(count, pairs) = 4 prisonersWithPairs (1 -> 2) and (1 -> 3)
+    val PrisonTransport(count, pairs) = 6 prisonersWithPairs (1 -> 3) and (3 -> 4) and (2 -> 1)
 
-    assertResult(3)(PrisonTransport.calculateCost(count, pairs))
+    assertResult(4)(PrisonTransport.calculateCost(count, pairs))
   }
 
   "PrisonTransport.validateAndCreate(Int, List[(Int, Int)])" should "return Success PrisonTransport" in

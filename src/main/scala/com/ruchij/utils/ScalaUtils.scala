@@ -13,10 +13,9 @@ object ScalaUtils
   def group[T](pairsList: List[(T, T)]): Set[Set[T]] =
     pairsList.foldLeft(Set.empty[Set[T]]) {
       case (total, (a, b)) =>
-        total.find(_.hasAtLeastOneValue(a, b))
-          .fold(total + Set(a, b)) {
-            set => total - set + (set ++ Set(a, b))
-          }
+        val matches: Set[Set[T]] = total.filter(_.hasAtLeastOneValue(a, b))
+
+        total.diff(matches) + (matches.flatten ++ Set(a, b))
     }
 
   def predicate(condition: Boolean, exception: => Exception): Try[Unit] =
